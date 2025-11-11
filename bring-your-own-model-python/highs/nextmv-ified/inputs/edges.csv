@@ -1,0 +1,6 @@
+from,to,weight
+A,B,2.0
+B,C,3.0
+A,C,1.5
+B,D,2.5
+C,D,1.0

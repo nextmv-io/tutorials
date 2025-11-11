@@ -1,0 +1,26 @@
+{
+  "sets": {
+    "i": ["seattle", "san-diego"],
+    "j": ["new-york", "chicago", "topeka"]
+  },
+  "parameters": {
+    "a": {
+      "seattle": 350,
+      "san-diego": 600
+    },
+    "b": {
+      "new-york": 325,
+      "chicago": 300,
+      "topeka": 275
+    },
+    "d": [
+      { "from": "seattle", "to": "new-york", "cost": 2.5 },
+      { "from": "seattle", "to": "chicago", "cost": 1.7 },
+      { "from": "seattle", "to": "topeka", "cost": 1.8 },
+      { "from": "san-diego", "to": "new-york", "cost": 2.5 },
+      { "from": "san-diego", "to": "chicago", "cost": 1.8 },
+      { "from": "san-diego", "to": "topeka", "cost": 1.4 }
+    ],
+    "f": 90
+  }
+}
