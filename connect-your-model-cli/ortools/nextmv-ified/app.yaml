@@ -1,0 +1,42 @@
+type: java
+runtime: ghcr.io/nextmv-io/runtime/java:latest
+files:
+  - main.jar
+build:
+  command: mvn clean package
+execution:
+  entrypoint: main.jar
+configuration:
+  content:
+    format: multi-file
+    multi-file:
+      input:
+        path: inputs
+      output:
+        solutions: outputs/solutions
+        statistics: outputs/statistics/statistics.json
+        assets: outputs/assets/assets.json
+  options:
+    items:
+      - name: vehicle_maximum_travel_distance
+        description: Maximum travel distance for each vehicle, in meters.
+        required: false
+        option_type: float
+        default: 3000
+        additional_attributes:
+          min: 10
+          max: 10000
+          step: 100
+        ui:
+          control_type: slider
+      - name: global_span_cost_coefficient
+        description: Coefficient for the global span cost in the objective function.
+        required: false
+        option_type: float
+        default: 100
+        additional_attributes:
+          min: 1
+          max: 10000
+          step: 10
+        ui:
+          control_type: slider

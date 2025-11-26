@@ -1,6 +1,6 @@
-# Bring your own model - Python
+# Connect your model - Python SDK
 
-Code for the bring your own model (Python) tutorial. There are two examples:
+Code for the connect your model (Python SDK) tutorial. There are two examples:
 
 * [Pyomo](./pyomo/): [Transport problem authored by Pyomo][pyomo-example].
 * [HiGHS](./highs/): [Shortest path network flow authored by HiGHS][highs-example].

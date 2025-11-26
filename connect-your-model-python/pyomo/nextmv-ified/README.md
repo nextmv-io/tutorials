@@ -5,15 +5,15 @@ Pyomo][pyomo-example] turned into a Nextmv Application.
 
 * Install requirements.
 
-```bash
-pip install -r requirements.txt
-```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 * Run the example.
 
-```bash
-python main.py -input inputs/problem.json
-```
+  ```bash
+  python main.py -input inputs/problem.json
+  ```
 
 * Run the scripts individually.
 

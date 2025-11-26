@@ -1,0 +1,17 @@
+{
+  "num_col": 2,
+  "num_row": 3,
+  "offset": 3,
+  "col_cost": [1.0, 1.0],
+  "col_lower": [0.0, 1.0],
+  "col_upper": [4.0, 1.0e30],
+  "row_lower": [-1.0e30, 5.0, 6.0],
+  "row_upper": [7.0, 15.0, 1.0e30],
+  "a_matrix": {
+    "format": "colwise",
+    "start": [0, 2, 5],
+    "index": [1, 2, 0, 1, 2],
+    "value": [1.0, 3.0, 1.0, 2.0, 2.0]
+  },
+  "integrality": [1, 1]
+}
