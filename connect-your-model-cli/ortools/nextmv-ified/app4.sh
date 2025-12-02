@@ -1,1 +1,1 @@
-nextmv experiment input-set create -a test-ortools -i latest -s input-set-1 -n "Input set 1"
+nextmv experiment input-set create -a test-ortools -i latest -s input-set-2 -n "Input set 2"
