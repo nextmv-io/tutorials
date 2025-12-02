@@ -209,3 +209,17 @@ __marimo__/
 # Nextmv stuff
 .nextmv/
 outputs/
+
+# HiGHS stuff
+connect-your-model-cli/highs/*/HiGHS/
+connect-your-model-cli/highs/*/main
+
+# C++ stuff
+nlohmann/
+
+# OR-Tools Java stuff
+dependency-reduced-pom.xml
+main.jar
+
+# VSCode stuff
+.vscode/

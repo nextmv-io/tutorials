@@ -1,0 +1,1 @@
+nextmv experiment input-set create -a test-highs -i latest -s input-set-2 -n "Input set 2"

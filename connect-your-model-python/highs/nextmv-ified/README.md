@@ -5,15 +5,15 @@ HiGHS][highs-example] turned into a Nextmv Application.
 
 * Install requirements.
 
-```bash
-pip install -r requirements.txt
-```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 * Run the example.
 
-```bash
-python main.py
-```
+  ```bash
+  python main.py
+  ```
 
 * Run the scripts individually.
 

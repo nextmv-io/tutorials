@@ -1,0 +1,38 @@
+import os
+
+from nextmv import cloud
+
+# Instantiate the cloud application.
+client = cloud.Client(api_key=os.getenv("NEXTMV_API_KEY"))
+cloud_app = cloud.Application.new(
+    client=client,
+    name="test-pyomo-app",
+    id="test-pyomo-app",
+    exist_ok=True,
+)
+
+# Create the scenario test.
+scenario_test_id = cloud_app.new_scenario_test(
+    id="scenario-test-2",
+    name="Scenario Test 2",
+    scenarios=[
+        cloud.Scenario(
+            scenario_input=cloud.ScenarioInput(
+                scenario_input_type=cloud.ScenarioInputType.INPUT_SET,
+                scenario_input_data="input-set-2",
+            ),
+            instance_id="latest",
+            configuration=[
+                cloud.ScenarioConfiguration(
+                    name="duration",
+                    values=["1", "3", "5"],
+                ),
+                cloud.ScenarioConfiguration(
+                    name="solver",
+                    values=["glpk", "scip", "cbc"],
+                ),
+            ],
+        ),
+    ],
+)
+print(f"Created scenario test with ID: {scenario_test_id}")

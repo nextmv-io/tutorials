@@ -1,0 +1,26 @@
+type: go
+runtime: ghcr.io/nextmv-io/runtime/default:latest
+files:
+  - main
+  - HiGHS/build/lib/
+  - nlohmann/json.hpp
+build:
+  command: bash ./build.sh
+execution:
+  entrypoint: main
+configuration:
+  content:
+    format: json
+  options:
+    items:
+      - name: duration
+        description: Duration for the solver, in seconds.
+        required: false
+        option_type: float
+        default: 1
+        additional_attributes:
+          min: 0
+          max: 10
+          step: 1
+        ui:
+          control_type: slider

@@ -5,15 +5,15 @@ constraints by OR-Tools][or-tools-example] turned into a Nextmv Application.
 
 * Install requirements.
 
-```bash
-pip install -r requirements.txt
-```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 * Run the example.
 
-```bash
-python main.py -input inputs/input.json
-```
+  ```bash
+  python main.py -input inputs/input.json
+  ```
 
 * Run the scripts individually.
 
