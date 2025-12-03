@@ -209,6 +209,7 @@ __marimo__/
 # Nextmv stuff
 .nextmv/
 outputs/
+output.json
 
 # HiGHS stuff
 connect-your-model-cli/highs/*/HiGHS/
