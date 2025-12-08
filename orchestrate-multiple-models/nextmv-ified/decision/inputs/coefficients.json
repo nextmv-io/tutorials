@@ -1,0 +1,14 @@
+{
+  "Intercept": 5.439310052165037,
+  "C(region)[T.Midsouth]": -0.2426931536778842,
+  "C(region)[T.Northeast]": 1.4330198366432345,
+  "C(region)[T.Northern_New_England]": -3.0192437906378973,
+  "C(region)[T.Plains]": -1.8150328723904134,
+  "C(region)[T.SouthCentral]": 1.7138120739734481,
+  "C(region)[T.Southeast]": 0.5839901666611709,
+  "C(region)[T.West]": 2.6017994486412617,
+  "price": -2.2037701048902405,
+  "year_index": 0.16076930231844397,
+  "peak": 0.5485105058308412,
+  "C(region)[T.Great_Lakes]": 0
+}

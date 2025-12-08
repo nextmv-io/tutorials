@@ -1,0 +1,32 @@
+{
+  "regions": [
+    "Great_Lakes",
+    "Midsouth",
+    "Northeast",
+    "Northern_New_England",
+    "SouthCentral",
+    "Southeast",
+    "West",
+    "Plains"
+  ],
+  "avocado_data_path": "https://raw.githubusercontent.com/Gurobi/modeling-examples/master/price_optimization/HABdata_2019_2022.csv",
+  "avocado_old_data_path": "https://raw.githubusercontent.com/Gurobi/modeling-examples/master/price_optimization/kaggledata_till2018.csv",
+  "initial_year": 2015,
+  "peak_months": [2, 8],
+  "B": 30,
+  "peak_or_not": 1,
+  "year": 2022,
+  "cost_waste": 0.1,
+  "cost_transport": {
+    "Great_Lakes": 0.3,
+    "Midsouth": 0.1,
+    "Northeast": 0.4,
+    "Northern_New_England": 0.5,
+    "SouthCentral": 0.3,
+    "Southeast": 0.2,
+    "West": 0.2,
+    "Plains": 0.2
+  },
+  "a_min": 0,
+  "a_max": 2
+}

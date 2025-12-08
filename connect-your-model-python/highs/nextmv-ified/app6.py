@@ -5,7 +5,7 @@ from nextmv import cloud
 
 # Instantiate the cloud application.
 client = cloud.Client(api_key=os.getenv("NEXTMV_API_KEY"))
-cloud_app = cloud.Application.new(client=client, id="test-highs-app")
+cloud_app = cloud.Application(client=client, id="test-highs-app")
 
 # Run the app.
 run_result = cloud_app.new_run_with_result(

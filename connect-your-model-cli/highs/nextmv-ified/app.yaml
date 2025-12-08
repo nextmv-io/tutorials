@@ -3,7 +3,6 @@ runtime: ghcr.io/nextmv-io/runtime/default:latest
 files:
   - main
   - HiGHS/build/lib/
-  - nlohmann/json.hpp
 build:
   command: bash ./build.sh
 execution:

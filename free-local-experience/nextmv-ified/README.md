@@ -1,7 +1,7 @@
 # OR-Tools vehicle routing problem with capacity constraints - Nextmv-ified
 
 This is the code for the [Vehicle routing problem with capacity
-constraints by OR-Tools][or-tools-example] turned into a Nextmv Application.
+constraints by OR-Tools][or-tools-example] turned into a Nextmv application.
 
 * Install requirements.
 
@@ -17,31 +17,31 @@ constraints by OR-Tools][or-tools-example] turned into a Nextmv Application.
 
 * Run the scripts individually.
 
-  * `app1.py`: runs the Nextmv Application locally, printing run IDs.
+  * `app1.py`: runs the Nextmv application locally, printing run IDs.
 
     ```bash
     python app1.py
     ```
 
-  * `app2.py`: gets the results of the local Nextmv Application runs.
+  * `app2.py`: gets the results of the local Nextmv application runs.
 
     ```bash
     python app2.py
     ```
 
-  * `app3.py`: gets the metadata of the local Nextmv Application runs.
+  * `app3.py`: gets the metadata of the local Nextmv application runs.
 
     ```bash
     python app3.py
     ```
 
-  * `app4.py`: runs the Nextmv Application locally, polling for results.
+  * `app4.py`: runs the Nextmv application locally, polling for results.
 
     ```bash
     python app4.py
     ```
 
-  * `app5.py`: runs the Nextmv Application locally, polling for results and
+  * `app5.py`: runs the Nextmv application locally, polling for results and
     visualizing them.
 
     ```bash

@@ -1,0 +1,14 @@
+{
+  "regions": [
+    "Great_Lakes",
+    "Midsouth",
+    "Northeast",
+    "Northern_New_England",
+    "SouthCentral",
+    "Southeast",
+    "West",
+    "Plains"
+  ],
+  "peak_months": [2, 8],
+  "initial_year": 2015
+}

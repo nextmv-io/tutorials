@@ -1,7 +1,7 @@
 # Pyomo transport problem - Nextmv-ified
 
 This is the code for the [Transport problem authored by
-Pyomo][pyomo-example] turned into a Nextmv Application.
+Pyomo][pyomo-example] turned into a Nextmv application.
 
 * Install requirements.
 
@@ -37,7 +37,7 @@ Pyomo][pyomo-example] turned into a Nextmv Application.
     export NEXTMV_API_KEY="<YOUR_NEXTMV_API_KEY>"
     ```
 
-  * `app3.py`: creates a new Nextmv Cloud Application. Requires a valid Nextmv
+  * `app3.py`: creates a new Nextmv Cloud application. Requires a valid Nextmv
     Cloud API key.
 
     ```bash
@@ -51,7 +51,7 @@ Pyomo][pyomo-example] turned into a Nextmv Application.
     python app4.py
     ```
 
-  * `app5.py`: pushes the local executable code to a Nextmv Cloud Application.
+  * `app5.py`: pushes the local executable code to a Nextmv Cloud application.
 
     ```bash
     python app5.py

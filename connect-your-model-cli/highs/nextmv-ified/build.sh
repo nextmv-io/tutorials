@@ -12,7 +12,5 @@ echo "🐰 Binary extracted to ./main"
 mkdir -p HiGHS/build
 docker cp highs-solver:/app/HiGHS/build/lib ./HiGHS/build
 echo "🐰 Required libraries extracted to ./HiGHS/build/lib"
-docker cp highs-solver:/app/nlohmann ./nlohmann 
-echo "🐰 nlohmann/json header extracted to ./nlohmann"
 docker rm highs-solver
 echo "🐰 Build completed successfully."

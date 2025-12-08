@@ -8,5 +8,7 @@ Tutorials for getting up and running with the Nextmv Platform.
    decision model to the Nextmv platform using the Nextmv CLI.
 1. [Explore new model - CLI](./explore-new-model-cli/): explore a new decision
    model using a Nextmv community app and the Nextmv CLI.
-1. [Free local experience](./free-local-experience/): run Nextmv Applications
+1. [Free local experience](./free-local-experience/): run Nextmv applications
    locally using the Python SDK.
+1. [Ochestrate multiple models - Nextpipe](./orchestrate-multiple-models/): use
+   Nextpipe to orchestrate multiple decision models in a single workflow.
