@@ -23,13 +23,13 @@ instructions on how to run the app itself.
     bash app2.sh
     ```
 
-  * `app3.sh`: Create a Nextmv Cloud Application.
+  * `app3.sh`: Create a Nextmv Cloud application.
 
     ```bash
     bash app3.sh
     ```
 
-  * `app4.sh`: Push the local executable code to a Nextmv Cloud Application.
+  * `app4.sh`: Push the local executable code to a Nextmv Cloud application.
 
     ```bash
     bash app4.sh

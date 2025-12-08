@@ -1,7 +1,7 @@
 # HiGHS simple LP problem in C++ - Nextmv-ified
 
 This is the code for the [Simple LP problem authored by
-HiGHS][highs-example] turned into a Nextmv Application.
+HiGHS][highs-example] turned into a Nextmv application.
 
 * Build the HiGHS solver itself. You only need to do this once.
 
@@ -54,13 +54,13 @@ HiGHS][highs-example] turned into a Nextmv Application.
 
 * Run the scripts individually.
 
-  * `app1.sh`: Create a Nextmv Cloud Application.
+  * `app1.sh`: Create a Nextmv Cloud application.
 
     ```bash
     bash app1.sh
     ```
 
-  * `app2.sh`: Push the local executable code to a Nextmv Cloud Application.
+  * `app2.sh`: Push the local executable code to a Nextmv Cloud application.
 
     ```bash
     bash app2.sh

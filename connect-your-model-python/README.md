@@ -8,7 +8,7 @@ Code for the connect your model (Python SDK) tutorial. There are two examples:
 For each of the examples, you will find two directories:
 
 * `original`: the original example without any modifications.
-* `nextmv-ified`: the example converted into a Nextmv Application.
+* `nextmv-ified`: the example converted into a Nextmv application.
 
 Go into each directory for instructions about running the decision model.
 
