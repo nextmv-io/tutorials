@@ -7,7 +7,7 @@ local_app = local.Application(src=".")
 
 # Instantiate the cloud application.
 client = cloud.Client(api_key=os.getenv("NEXTMV_API_KEY"))
-cloud_app = cloud.Application.new(client=client, id="test-highs-app")
+cloud_app = cloud.Application(client=client, id="test-highs-app")
 
 # Sync the local app's runs to the cloud app.
 local_app.sync(target=cloud_app, verbose=True)

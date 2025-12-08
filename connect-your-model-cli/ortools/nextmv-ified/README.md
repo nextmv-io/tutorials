@@ -1,7 +1,7 @@
 # OR-Tools Vehicle Routing Problem with Pickups and Deliveries in Java - Nextmv-ified
 
 This is the code for the [Vehicle Routing Problem with Pickups and
-Deliveries authored by OR-Tools][ortools-example] turned into a Nextmv Application.
+Deliveries authored by OR-Tools][ortools-example] turned into a Nextmv application.
 
 * Compile the code with Maven:
 
@@ -17,13 +17,13 @@ Deliveries authored by OR-Tools][ortools-example] turned into a Nextmv Applicati
 
 * Run the scripts individually.
 
-  * `app1.sh`: Create a Nextmv Cloud Application.
+  * `app1.sh`: Create a Nextmv Cloud application.
 
     ```bash
     bash app1.sh
     ```
 
-  * `app2.sh`: Push the local executable code to a Nextmv Cloud Application.
+  * `app2.sh`: Push the local executable code to a Nextmv Cloud application.
 
     ```bash
     bash app2.sh

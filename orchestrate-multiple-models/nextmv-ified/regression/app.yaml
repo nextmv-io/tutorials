@@ -1,0 +1,42 @@
+type: python
+runtime: ghcr.io/nextmv-io/runtime/python:3.11
+files:
+  - main.py
+python:
+  pip-requirements: requirements.txt
+configuration:
+  content:
+    format: multi-file
+    multi-file:
+      input:
+        path: inputs
+      output:
+        solutions: outputs/solutions
+        statistics: outputs/statistics/statistics.json
+        assets: outputs/assets/assets.json
+  options:
+    items:
+      - name: train_size
+        description: Proportion of data to use for training
+        required: false
+        option_type: float
+        default: 0.8
+        additional_attributes:
+          min: 0.1
+          max: 0.9
+          step: 0.1
+        ui:
+          control_type: slider
+          display_name: Training Size
+      - name: random_state
+        description: Random seed for train-test split
+        required: false
+        option_type: int
+        default: 1
+        additional_attributes:
+          min: 0
+          max: 100
+          step: 1
+        ui:
+          control_type: slider
+          display_name: Random Seed
