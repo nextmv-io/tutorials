@@ -1,9 +1,6 @@
 import os
 
-from nextmv import cloud, local
-
-# Instantiate the local application.
-local_app = local.Application(src=".")
+from nextmv import cloud
 
 # Instantiate the cloud application.
 client = cloud.Client(api_key=os.getenv("NEXTMV_API_KEY"))
@@ -13,6 +10,4 @@ cloud_app = cloud.Application.new(
     id="test-highs-app",
     exist_ok=True,
 )
-
-# Sync the local app's runs to the cloud app.
-local_app.sync(target=cloud_app, verbose=True)
+print("Cloud application created:", cloud_app.id)
