@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+# Prepare Docker environment
+docker rm -f highs-solver || true
+
 # Build the Docker image
 docker buildx build -f Dockerfile -t highs-solver --platform linux/arm64 --load .
 
