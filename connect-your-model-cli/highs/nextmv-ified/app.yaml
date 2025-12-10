@@ -1,4 +1,4 @@
-type: go
+type: binary
 runtime: ghcr.io/nextmv-io/runtime/default:latest
 files:
   - main
