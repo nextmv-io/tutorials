@@ -1,1 +1,1 @@
-nextmv app create -a test-avocado-workflow -n test-avocado-workflow --flow
+nextmv cloud app create -a test-avocado-workflow -n test-avocado-workflow --flow

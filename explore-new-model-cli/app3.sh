@@ -1,1 +1,1 @@
-nextmv app create -n test-community-app -a test-community-app
+nextmv cloud app create -n test-community-app -a test-community-app
