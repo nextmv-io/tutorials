@@ -1,1 +1,1 @@
-nextmv app create -a test-avocado-decision -n test-avocado-decision
+nextmv cloud app create -a test-avocado-decision -n test-avocado-decision

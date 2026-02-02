@@ -1,1 +1,1 @@
-nextmv app push -a test-highs
+nextmv cloud app push -a test-highs

@@ -1,1 +1,1 @@
-nextmv app push -a test-ortools
+nextmv cloud app push -a test-ortools
