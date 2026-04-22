@@ -12,3 +12,5 @@ Tutorials for getting up and running with the Nextmv Platform.
    locally using the Python SDK.
 1. [Ochestrate multiple models - Nextpipe](./orchestrate-multiple-models/): use
    Nextpipe to orchestrate multiple decision models in a single workflow.
+1. [CI/CD with GitHub Actions](./ci-cd-github-actions/): set up a CI/CD
+   pipeline for your Nextmv applications using GitHub Actions.
