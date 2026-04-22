@@ -8,7 +8,7 @@ METRIC='{
     "statistic": "mean"
 }'
 nextmv cloud acceptance create --app-id nextroute \
-    --acceptance-test-id acceptance-2 \
+    --acceptance-test-id acceptance-1 \
     --candidate-instance-id staging \
     --baseline-instance-id production \
     --metrics "$METRIC" \

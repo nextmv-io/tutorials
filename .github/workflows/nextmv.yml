@@ -1,24 +1,33 @@
-name: Push Application to Nextmv Platform
+# Create a name for the workflow.
+name: CI/CD decision workflow - acceptance testing
+
+# Define the events that trigger the workflow. In this case, we simply run it
+# when there is a commit to the main `develop` branch.
 on:
   push:
     branches:
       - develop
+
 jobs:
   push-app:
     runs-on: ubuntu-latest
     steps:
+      # Check out the current code of the repository.
       - name: Checkout code
         uses: actions/checkout@v6
 
+      # Use the Nextmv GitHub Action to set up the Nextmv CLI.
       - name: Install Nextmv CLI
         uses: nextmv-io/setup-nextmv@v1
         with:
           api-key: ${{ secrets.NEXTMV_API_KEY }}
 
+      # Deploy the code, create a new version, and update the `staging` instance to use the new version.
       - name: Push new version of nextroute and update staging instance
         run: nextmv cloud app push --app-id nextroute --version-yes --update-instance-id staging
         working-directory: ./ci-cd-github-actions/python-nextroute # Location of the app to push
 
+      # Create a new acceptance test comparing `staging` to `production`.
       - name: Create a new acceptance test
         run: |
           # Define metrics in-line or load them from a `.json` file.
@@ -35,7 +44,7 @@ jobs:
           # Use the short SHA of the commit as the acceptance test ID to ensure uniqueness.
           ACCEPTANCE_TEST_ID=$(git rev-parse --short HEAD)
 
-          # Create an acceptance test comparing `staging` to `production`
+          # Create an acceptance test comparing `staging` to `production`.
           nextmv cloud acceptance create --app-id nextroute \
               --acceptance-test-id "$ACCEPTANCE_TEST_ID" \
               --candidate-instance-id staging \
