@@ -9,7 +9,7 @@ on:
       - develop
 
 jobs:
-  push-app:
+  acceptance-test:
     runs-on: ubuntu-latest
     steps:
       # Check out the current code of the repository.
