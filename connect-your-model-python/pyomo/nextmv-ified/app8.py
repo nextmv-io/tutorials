@@ -12,7 +12,7 @@ scenario_test_id = cloud_app.new_scenario_test(
         cloud.Scenario(
             scenario_input=cloud.ScenarioInput(
                 scenario_input_type=cloud.ScenarioInputType.INPUT_SET,
-                scenario_input_data="input-set-2",
+                scenario_input_data="<INPUT_SET_ID_CREATED_IN_LAST_STEP>",
             ),
             instance_id="latest",
             configuration=[

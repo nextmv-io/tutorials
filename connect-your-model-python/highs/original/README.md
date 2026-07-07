@@ -3,16 +3,16 @@
 This is the original code for the [Shortest path network flow authored by
 HiGHS][highs-example].
 
-* Install requirements.
+* Sync the project.
 
     ```bash
-    pip install -r requirements.txt
+    uv sync
     ```
 
 * Run the example.
 
     ```bash
-    python main.py
+    uv run main.py
     ```
 
 [highs-example]: https://github.com/ERGO-Code/HiGHS/blob/master/examples/network_flow.py

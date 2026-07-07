@@ -3,16 +3,16 @@
 This is the original code for the [Transport problem authored by
 Pyomo][pyomo-example].
 
-* Install requirements.
+* Sync the project.
 
     ```bash
-    pip install -r requirements.txt
+    uv sync
     ```
 
 * Run the example.
 
     ```bash
-    python main.py
+    uv run main.py
     ```
 
 [pyomo-example]: https://github.com/Pyomo/pyomo-gallery/blob/main/transport/transport.py
