@@ -3,49 +3,49 @@
 This is the code for the [Vehicle routing problem with capacity
 constraints by OR-Tools][or-tools-example] turned into a Nextmv application.
 
-* Install requirements.
+* Sync the project.
 
   ```bash
-  pip install -r requirements.txt
+  uv sync
   ```
 
 * Run the example.
 
   ```bash
-  python main.py -input inputs/input.json
+  cat inputs/input.json | uv run main.py
   ```
 
 * Run the scripts individually.
 
-  * `app1.py`: runs the Nextmv application locally, printing run IDs.
+  * `app1.sh`: runs the Nextmv application locally, printing run IDs.
 
     ```bash
-    python app1.py
+    ./app1.sh
     ```
 
-  * `app2.py`: gets the results of the local Nextmv application runs.
+  * `app2.sh`: gets the results of the local Nextmv application runs.
 
     ```bash
-    python app2.py
+    ./app2.sh
     ```
 
-  * `app3.py`: gets the metadata of the local Nextmv application runs.
+  * `app3.sh`: gets the information of the local Nextmv application runs.
 
     ```bash
-    python app3.py
+    ./app3.sh
     ```
 
-  * `app4.py`: runs the Nextmv application locally, polling for results.
+  * `app4.sh`: runs the Nextmv application locally, polling for results.
 
     ```bash
-    python app4.py
+    ./app4.sh
     ```
 
-  * `app5.py`: runs the Nextmv application locally, polling for results and
+  * `app5.sh`: runs the Nextmv application locally, polling for results and
     visualizing them.
 
     ```bash
-    python app5.py
+    ./app5.sh
     ```
 
 [or-tools-example]: https://developers.google.com/optimization/routing/cvrp

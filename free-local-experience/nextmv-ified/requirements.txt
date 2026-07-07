@@ -1,2 +1,0 @@
-pyomo>=6.9.5
-nextmv[all]>=0.35.1

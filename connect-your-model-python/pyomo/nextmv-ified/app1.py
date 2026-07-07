@@ -15,8 +15,8 @@ run_id_1 = local_app.new_run(input=problem.data)
 # Sleep and get metadata, output (results), logs.
 time.sleep(5)
 
-run_metadata_1 = local_app.run_metadata(run_id=run_id_1)
-nextmv.write(run_metadata_1)
+run_information_1 = local_app.run_information(run_id=run_id_1)
+nextmv.write(run_information_1)
 
 run_results_1 = local_app.run_result(run_id=run_id_1)
 nextmv.write(run_results_1.output)

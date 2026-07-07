@@ -1,0 +1,9 @@
+[project]
+name = "nextmv-ified"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "highspy>=1.15.1",
+    "networkx>=3.6.1",
+    "nextmv>=1.9.5",
+]

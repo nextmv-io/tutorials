@@ -6,17 +6,13 @@ import networkx as nx
 import nextmv
 
 nextmv.redirect_stdout()
-manifest = nextmv.Manifest.from_yaml(".")
-options = manifest.extract_options()
 input = nextmv.load(
-    input_format=nextmv.InputFormat.MULTI_FILE,
-    options=options,
-    path="inputs",
     data_files=[
         nextmv.json_data_file("nodes", input_data_key="nodes"),
         nextmv.csv_data_file("edges", input_data_key="edges"),
     ],
 )
+options = input.options
 
 nodes = input.data["nodes"]
 orig, dest = (nodes["origin"], nodes["destination"])
@@ -56,23 +52,17 @@ while n != dest:
 print(dest)
 
 solution = {"shortest_path": shortest_path}
-statistics = nextmv.Statistics(
-    result=nextmv.ResultStatistics(
-        duration=h.getRunTime(),
-        value=h.getInfo().objective_function_value,
-        custom={
-            "variables": h.numVariables,
-            "constraints": h.numConstrs,
-            "length_shortest_path": len(shortest_path),
-        },
-    )
-)
-output = nextmv.Output(
+metrics = {
+    "duration": h.getRunTime(),
+    "value": h.getInfo().objective_function_value,
+    "variables": h.numVariables,
+    "constraints": h.numConstrs,
+    "length_shortest_path": len(shortest_path),
+}
+nextmv.write(
     options=options,
-    output_format=nextmv.OutputFormat.MULTI_FILE,
+    metrics=metrics,
     solution_files=[
         nextmv.json_solution_file(name="shortest_path", data=solution),
     ],
-    statistics=statistics,
 )
-nextmv.write(output, path="outputs")

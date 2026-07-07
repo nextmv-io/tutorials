@@ -13,7 +13,7 @@ run_result = cloud_app.new_run_with_result(
     input=input.data,  # Data is loaded from memory.
     run_options={
         "duration": "3",
-        "solver": "scip",
+        "solver": "cbc",
     },
 )
 nextmv.write(run_result)

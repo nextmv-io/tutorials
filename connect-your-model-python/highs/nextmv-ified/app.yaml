@@ -3,7 +3,7 @@ runtime: ghcr.io/nextmv-io/runtime/python:3.11
 files:
   - main.py
 python:
-  pip-requirements: requirements.txt
+  pip-requirements: pyproject.toml # Can be a requirements.txt
 configuration:
   content:
     format: multi-file
@@ -12,8 +12,8 @@ configuration:
         path: inputs
       output:
         solutions: outputs/solutions
-        statistics: outputs/statistics/statistics.json
-        assets: outputs/assets/assets.json
+        metrics: outputs/metrics.json
+        assets: outputs/assets.json
   options:
     items:
       - name: duration
