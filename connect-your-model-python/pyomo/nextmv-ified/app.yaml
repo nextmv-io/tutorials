@@ -12,7 +12,7 @@ configuration:
       - name: duration
         description: Duration for the solver, in seconds.
         required: false
-        option_type: float
+        option_type: int
         default: 1
         additional_attributes:
           min: 0
