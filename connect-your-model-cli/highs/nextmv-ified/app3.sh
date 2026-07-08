@@ -1,1 +1,2 @@
-nextmv cloud run create -a test-highs -i inputs/problem.json -o "duration=1" -s env-vars
+nextmv cloud secrets create -a test-highs \
+    --secrets '{"type": "env", "location": "LD_LIBRARY_PATH", "value": "./HiGHS/build/lib"}'

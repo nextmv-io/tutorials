@@ -82,46 +82,6 @@ public class VrpPickupDelivery {
     }
   }
 
-  static class CustomStatistics {
-    public double total_distance;
-    public int total_routes;
-
-    public CustomStatistics(double total_distance, int total_routes) {
-      this.total_distance = total_distance;
-      this.total_routes = total_routes;
-    }
-  }
-
-  static class ResultStatistics {
-    public double value;
-    public double duration;
-    public CustomStatistics custom;
-
-    public ResultStatistics(double value, double duration, CustomStatistics custom) {
-      this.value = value;
-      this.duration = duration;
-      this.custom = custom;
-    }
-  }
-
-  static class Statistics {
-    public String schema;
-    public ResultStatistics result;
-
-    public Statistics(String schema, ResultStatistics result) {
-      this.schema = schema;
-      this.result = result;
-    }
-  }
-
-  static class StatisticsOutput {
-    public Statistics statistics;
-
-    public StatisticsOutput(Statistics statistics) {
-      this.statistics = statistics;
-    }
-  }
-
   /// @brief Save the solution to a JSON file.
   static long saveSolutionToFile(
       DataModel data, RoutingModel routing, RoutingIndexManager manager, Assignment solution, String outputFile) throws IOException {
@@ -166,13 +126,14 @@ public class VrpPickupDelivery {
     return totalDistance;
   }
 
-  /// @brief Save the statistics to a JSON file.
-  static void saveStatisticsToFile(
+  /// @brief Save the metrics to a JSON file.
+  static void saveMetricsToFile(
       double objectiveValue, double durationSeconds, long totalDistance, int totalRoutes, String outputFile) throws IOException {
-    CustomStatistics custom = new CustomStatistics(totalDistance, totalRoutes);
-    ResultStatistics result = new ResultStatistics(objectiveValue, durationSeconds, custom);
-    Statistics statistics = new Statistics("v1", result);
-    StatisticsOutput output = new StatisticsOutput(statistics);
+    java.util.Map<String, Object> metrics = new java.util.LinkedHashMap<>();
+    metrics.put("objective_value", objectiveValue);
+    metrics.put("duration_seconds", durationSeconds);
+    metrics.put("total_distance", totalDistance);
+    metrics.put("total_routes", totalRoutes);
     
     // Create output directory if it doesn't exist
     File file = new File(outputFile);
@@ -181,10 +142,10 @@ public class VrpPickupDelivery {
     // Write to JSON file
     Gson gson = new Gson();
     try (FileWriter writer = new FileWriter(outputFile)) {
-      gson.toJson(output, writer);
+      gson.toJson(metrics, writer);
     }
     
-    logger.info("Statistics saved to " + outputFile);
+    logger.info("Metrics saved to " + outputFile);
   }
 
   /// @brief Print the solution.
@@ -305,9 +266,9 @@ public class VrpPickupDelivery {
       }
     }
     
-    // Save statistics to JSON file.
-    String statisticsFile = "outputs/statistics/statistics.json";
+    // Save metrics to JSON file.
+    String metricsFile = "outputs/metrics.json";
     double objectiveValue = solution.objectiveValue();
-    saveStatisticsToFile(objectiveValue, durationSeconds, totalDistance, totalRoutes, statisticsFile);
+    saveMetricsToFile(objectiveValue, durationSeconds, totalDistance, totalRoutes, metricsFile);
   }
 }

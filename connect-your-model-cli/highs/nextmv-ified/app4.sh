@@ -1,1 +1,2 @@
-nextmv cloud input-set create -a test-highs -i latest -s input-set-2 -n "Input set 2"
+nextmv cloud run create -a test-highs -i inputs/problem.json -o "duration=1" \
+    -s "<SECRETS_COLLECTION_ID_CREATED_IN_LAST_STEP>"
