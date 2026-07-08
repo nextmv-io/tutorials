@@ -66,16 +66,28 @@ HiGHS][highs-example] turned into a Nextmv application.
     bash app2.sh
     ```
 
-  * `app3.sh`: Run the Nextmv Cloud application.
+  * `app3.sh`: Create a secrets collection to set the env var.
 
     ```bash
     bash app3.sh
     ```
 
-  * `app4.sh`: Create an input set.
+  * `app4.sh`: Run the Nextmv Cloud application.
 
     ```bash
     bash app4.sh
+    ```
+
+  * `app5.sh`: Create an input set.
+
+    ```bash
+    bash app5.sh
+    ```
+
+  * `app6.sh`: Create a scenario test.
+
+    ```bash
+    bash app6.sh
     ```
 
 [highs-example]: https://github.com/ERGO-Code/HiGHS/blob/master/examples/call_highs_from_cpp.cpp

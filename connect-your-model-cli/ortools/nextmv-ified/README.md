@@ -41,4 +41,10 @@ Deliveries authored by OR-Tools][ortools-example] turned into a Nextmv applicati
     bash app4.sh
     ```
 
+  * `app5.sh`: Create a scenario test.
+
+    ```bash
+    bash app5.sh
+    ```
+
 [ortools-example]: https://developers.google.com/optimization/routing/pickup_delivery#complete_programs
