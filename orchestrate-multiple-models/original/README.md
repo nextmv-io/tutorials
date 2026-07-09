@@ -3,16 +3,16 @@
 This is the original code for the [Avocado price optimization example authored by
 Gurobi][gurobi-example].
 
-* Install requirements.
+* Sync the project.
 
     ```bash
-    pip install -r requirements.txt
+    uv sync
     ```
 
 * Run the example.
 
     ```bash
-    python main.py
+    uv run main.py
     ```
 
 [gurobi-example]: https://www.gurobi.com/jupyter_models/avocado-price-optimization/
