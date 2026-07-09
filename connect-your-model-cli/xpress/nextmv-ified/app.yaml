@@ -1,0 +1,22 @@
+type: python
+runtime: ghcr.io/nextmv-io/runtime/python:3.11
+files:
+  - main.py
+python:
+  pip-requirements: pyproject.toml # Can be a requirements.txt
+configuration:
+  content:
+    format: json
+  options:
+    items:
+      - name: duration
+        description: Duration for the solver, in seconds.
+        required: false
+        option_type: float
+        default: 1
+        additional_attributes:
+          min: 0
+          max: 10
+          step: 1
+        ui:
+          control_type: slider
