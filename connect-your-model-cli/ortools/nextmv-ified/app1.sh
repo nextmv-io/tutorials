@@ -1,1 +1,1 @@
-nextmv cloud app create -n test-ortools -a test-ortools --exist-ok
+nextmv cloud app create -a test-ortools --exist-ok

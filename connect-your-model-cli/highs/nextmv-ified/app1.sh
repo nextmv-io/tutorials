@@ -1,1 +1,1 @@
-nextmv cloud app create -n test-highs -a test-highs --exist-ok
+nextmv cloud app create -a test-highs --exist-ok
