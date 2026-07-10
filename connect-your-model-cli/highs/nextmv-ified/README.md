@@ -84,10 +84,16 @@ HiGHS][highs-example] turned into a Nextmv application.
     bash app5.sh
     ```
 
-  * `app6.sh`: Create a scenario test.
+  * `app6.sh`: Update the `latest` instance with the secrets collection.
 
     ```bash
     bash app6.sh
+    ```
+
+  * `app7.sh`: Create a scenario test.
+
+    ```bash
+    bash app7.sh
     ```
 
 [highs-example]: https://github.com/ERGO-Code/HiGHS/blob/master/examples/call_highs_from_cpp.cpp

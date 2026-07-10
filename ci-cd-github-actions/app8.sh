@@ -11,4 +11,4 @@ nextmv cloud acceptance create --app-id nextroute \
     --candidate-instance-id staging \
     --baseline-instance-id production \
     --metrics "$METRIC" \
-    --input-set-id "<INPUT_SET_ID_CREATED_IN_LAST_STEP>"
+    --input-set-id "<INPUT_SET_ID_CREATED_PREVIOUSLY>"

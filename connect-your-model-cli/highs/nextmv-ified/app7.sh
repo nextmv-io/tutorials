@@ -7,8 +7,8 @@ SCENARIO='{
     "configuration": [
         {
             "name": "duration",
-            "values": ["5", "10", "20", "30"]
+            "values": ["1", "3", "5"]
         }
     ]
 }'
-nextmv cloud scenario create -a test-community-app -r 2 --scenarios "$SCENARIO"
+nextmv cloud scenario create -a test-highs -r 2 --scenarios "$SCENARIO"
