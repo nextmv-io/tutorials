@@ -1,2 +1,2 @@
-# Run this command from the root of the workflow app, this is, where the workflow/app.yaml file is located.
-nextmv cloud run create -a test-avocado-workflow -i input.json
+nextmv cloud secrets create -a test-avocado-workflow \
+    --secrets '{"type": "env", "location": "NEXTMV_API_KEY", "value": "'"${NEXTMV_API_KEY}"'"}'
