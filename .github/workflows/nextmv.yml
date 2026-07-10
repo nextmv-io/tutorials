@@ -41,12 +41,8 @@ jobs:
               "statistic": "mean"
           }'
 
-          # Use the short SHA of the commit as the acceptance test ID to ensure uniqueness.
-          ACCEPTANCE_TEST_ID=$(git rev-parse --short HEAD)
-
           # Create an acceptance test comparing `staging` to `production`.
           nextmv cloud acceptance create --app-id nextroute \
-              --acceptance-test-id "$ACCEPTANCE_TEST_ID" \
               --candidate-instance-id staging \
               --baseline-instance-id production \
               --metrics "$METRIC" \
