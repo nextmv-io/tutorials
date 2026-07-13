@@ -14,8 +14,8 @@ configuration:
         path: inputs
       output:
         solutions: outputs/solutions
-        statistics: outputs/statistics/statistics.json
-        assets: outputs/assets/assets.json
+        metrics: outputs/metrics.json
+        assets: outputs/assets.json
   options:
     items:
       - name: vehicle_maximum_travel_distance

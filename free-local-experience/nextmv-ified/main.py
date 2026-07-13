@@ -8,8 +8,11 @@ from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 
 
 def print_solution(
-    data, manager, routing, solution, options: nextmv.Options
-) -> nextmv.Output:
+    data,
+    manager,
+    routing,
+    solution,
+) -> tuple[list[nextmv.Asset], dict, dict]:
     """Prints solution on console."""
     print(f"Objective: {solution.ObjectiveValue()}")
 
@@ -59,28 +62,18 @@ def print_solution(
     print(f"Total distance of all routes: {total_distance}m")
     print(f"Total load of all routes: {total_load}")
 
-    statistics = nextmv.Statistics(
-        result=nextmv.ResultStatistics(
-            duration=routing.solver().WallTime() / 1000.0,
-            value=solution.ObjectiveValue(),
-            custom={
-                "total_distance": total_distance,
-                "total_load": total_load,
-            },
-        )
-    )
+    metrics = {
+        "duration": routing.solver().WallTime() / 1000.0,
+        "value": solution.ObjectiveValue(),
+        "total_distance": total_distance,
+        "total_load": total_load,
+    }
 
     # Create visualization assets
     assets = create_route_visualization(data, routes)
+    solution = {"routes": routes}
 
-    output = nextmv.Output(
-        options=options,
-        solution={"routes": routes},
-        statistics=statistics,
-        assets=assets,
-    )
-
-    return output
+    return assets, metrics, solution
 
 
 def create_route_visualization(data, routes) -> list[nextmv.Asset]:
@@ -167,9 +160,8 @@ def create_route_visualization(data, routes) -> list[nextmv.Asset]:
 def main():
     """Solve the CVRP problem."""
     nextmv.redirect_stdout()
-    manifest = nextmv.Manifest.from_yaml(".")
-    options = manifest.extract_options()
-    input = nextmv.load(path=options.input)
+    input = nextmv.load()
+    options = input.options
 
     # Instantiate the data problem.
     data = input.data
@@ -226,8 +218,8 @@ def main():
 
     # Print solution on console.
     if solution:
-        output = print_solution(data, manager, routing, solution, options)
-        nextmv.write(output, path=options.output)
+        assets, metrics, solution = print_solution(data, manager, routing, solution)
+        nextmv.write(assets=assets, metrics=metrics, solution=solution, options=options)
 
 
 if __name__ == "__main__":

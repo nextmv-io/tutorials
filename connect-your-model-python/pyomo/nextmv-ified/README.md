@@ -3,16 +3,16 @@
 This is the code for the [Transport problem authored by
 Pyomo][pyomo-example] turned into a Nextmv application.
 
-* Install requirements.
+* Sync the project.
 
   ```bash
-  pip install -r requirements.txt
+  uv sync
   ```
 
 * Run the example.
 
   ```bash
-  python main.py -input inputs/problem.json
+  cat inputs/problem.json | uv run main.py
   ```
 
 * Run the scripts individually.
@@ -21,13 +21,13 @@ Pyomo][pyomo-example] turned into a Nextmv application.
       results.
 
     ```bash
-    python app1.py
+    uv run app1.py
     ```
 
   * `app2.py`: runs the Nextmv application locally, polling for results.
 
     ```bash
-    python app2.py
+    uv run app2.py
     ```
 
   * Export your Nextmv Cloud API key for convenience, as it is required in the upcoming
@@ -41,38 +41,38 @@ Pyomo][pyomo-example] turned into a Nextmv application.
     Cloud API key.
 
     ```bash
-    python app3.py
+    uv run app3.py
     ```
 
   * `app4.py`: syncs the local application runs to a Nextmv Cloud
     application.
 
     ```bash
-    python app4.py
+    uv run app4.py
     ```
 
   * `app5.py`: pushes the local executable code to a Nextmv Cloud application.
 
     ```bash
-    python app5.py
+    uv run app5.py
     ```
 
   * `app6.py`: runs the Nextmv Cloud application, polling for results.
 
     ```bash
-    python app6.py
+    uv run app6.py
     ```
 
   * `app7.py`: creates an input set from the last runs.
 
     ```bash
-    python app7.py
+    uv run app7.py
     ```
 
   * `app8.py`: creates a scenario test using the input set.
 
     ```bash
-    python app8.py
+    uv run app8.py
     ```
 
 [pyomo-example]: https://github.com/Pyomo/pyomo-gallery/blob/main/transport/transport.py

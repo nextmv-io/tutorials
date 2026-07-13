@@ -3,16 +3,16 @@
 This is the original code for the [Vehicle routing problem with capacity
 constraints by OR-Tools][or-tools-example].
 
-* Install requirements.
+* Sync the project.
 
     ```bash
-    pip install -r requirements.txt
+    uv sync
     ```
 
 * Run the example.
 
     ```bash
-    python main.py
+    uv run main.py
     ```
 
 [or-tools-example]: https://developers.google.com/optimization/routing/cvrp

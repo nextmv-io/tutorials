@@ -1,11 +1,12 @@
+from typing import Any
+
 import gurobipy as gp
 import nextmv
 import pandas as pd
 from gurobipy import GRB
 
 
-def solve(input: nextmv.Input) -> nextmv.Output:
-    options = input.options
+def solve(input: nextmv.Input) -> tuple[list[nextmv.SolutionFile], dict[str, Any]]:
     avocado = input.data["avocado"]
 
     # Add the index for each year from 2015 through 2022
@@ -122,40 +123,28 @@ def solve(input: nextmv.Input) -> nextmv.Output:
     print("\n The optimal net revenue: $%f million" % opt_revenue)
     solution
 
-    return nextmv.Output(
-        output_format=nextmv.OutputFormat.MULTI_FILE,
-        options=options,
-        solution_files=[
-            nextmv.json_solution_file(
-                name="solution.json",
-                data={"solution": solution.to_dict(orient="records")},
-            )
-        ],
-        statistics=nextmv.Statistics(
-            result=nextmv.ResultStatistics(
-                value=opt_revenue,
-                duration=m.Runtime,
-                custom={
-                    "status": m.Status,
-                    "variables": m.NumVars,
-                    "constraints": m.NumConstrs,
-                },
-            ),
-        ),
-    )
+    solution_files = [
+        nextmv.json_solution_file(
+            name="solution.json",
+            data={"solution": solution.to_dict(orient="records")},
+        )
+    ]
+    metrics = {
+        "value": opt_revenue,
+        "duration": m.Runtime,
+        "status": m.Status,
+        "variables": m.NumVars,
+        "constraints": m.NumConstrs,
+    }
+    return solution_files, metrics
 
 
 if __name__ == "__main__":
-    manifest = nextmv.Manifest.from_yaml(".")
-    options = manifest.extract_options()
 
     def loader(file_path: str) -> pd.DataFrame:
         return pd.read_csv(file_path)
 
     input = nextmv.load(
-        input_format=nextmv.InputFormat.MULTI_FILE,
-        options=options,
-        path="inputs",
         data_files=[
             nextmv.json_data_file(name="coefficients", input_data_key="coefficients"),
             nextmv.json_data_file(name="input", input_data_key="input"),
@@ -166,5 +155,5 @@ if __name__ == "__main__":
             ),
         ],
     )
-    output = solve(input)
-    nextmv.write(output=output, path="outputs")
+    solution_files, metrics = solve(input)
+    nextmv.write(solution_files=solution_files, metrics=metrics)

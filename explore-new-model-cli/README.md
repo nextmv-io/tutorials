@@ -30,12 +30,14 @@ instructions on how to run the app itself.
     ```
 
   * `app4.sh`: Push the local executable code to a Nextmv Cloud application.
+    This command must be run from the `python-highs-knapsack` directory.
 
     ```bash
     bash app4.sh
     ```
 
-  * `app5.sh`: Run the Nextmv Cloud application.
+  * `app5.sh`: Run the Nextmv Cloud application. This command must be run from
+    the `python-highs-knapsack` directory.
 
     ```bash
     bash app5.sh

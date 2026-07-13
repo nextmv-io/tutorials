@@ -30,9 +30,8 @@ SUPPORTED_PROVIDER_DURATIONS = {
 model = ConcreteModel()
 
 nextmv.redirect_stdout()
-manifest = nextmv.Manifest.from_yaml(".")
-options = manifest.extract_options()
-input = nextmv.load(path=options.input)
+input = nextmv.load()
+options = input.options
 
 ## Define sets ##
 #  Sets
@@ -156,20 +155,11 @@ if __name__ == "__main__":
         if x() > 0.01
     ]
     solution = {"shipments": shipments}
-    statistics = nextmv.Statistics(
-        result=nextmv.ResultStatistics(
-            duration=results.solver.time,
-            value=value(model.objective, exception=False),
-            custom={
-                "variables": model.nvariables(),
-                "constraints": model.nconstraints(),
-                "num_edges_used": len(shipments),
-            },
-        )
-    )
-    output = nextmv.Output(
-        options=options,
-        solution=solution,
-        statistics=statistics,
-    )
-    nextmv.write(output, path=options.output)
+    metrics = {
+        "duration": results.solver.time,
+        "value": value(model.objective, exception=False),
+        "variables": model.nvariables(),
+        "constraints": model.nconstraints(),
+        "num_edges_used": len(shipments),
+    }
+    nextmv.write(solution=solution, metrics=metrics)

@@ -1,3 +1,5 @@
+from typing import Any
+
 import nextmv
 import pandas as pd
 import statsmodels.formula.api as smf
@@ -5,7 +7,7 @@ from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
 
 
-def fit(input: nextmv.Input) -> nextmv.Output:
+def fit(input: nextmv.Input) -> tuple[list[nextmv.SolutionFile], dict[str, Any]]:
     options = input.options
     avocado = input.data["avocado"]
 
@@ -69,19 +71,13 @@ def fit(input: nextmv.Input) -> nextmv.Output:
     coef_dict = result_full.params.to_dict()
     coef_dict["C(region)[T.Great_Lakes]"] = 0
 
-    return nextmv.Output(
-        output_format=nextmv.OutputFormat.MULTI_FILE,
-        options=options,
-        solution_files=[nextmv.json_solution_file("coefficients.json", data=coef_dict)],
-        statistics=nextmv.Statistics(
-            result=nextmv.ResultStatistics(
-                custom={
-                    "r2_test": r2_test,
-                    "r2_full": r2_full,
-                },
-            ),
-        ),
-    )
+    solution_files = [nextmv.json_solution_file("coefficients.json", data=coef_dict)]
+    metrics = {
+        "r2_test": r2_test,
+        "r2_full": r2_full,
+    }
+
+    return solution_files, metrics
 
 
 if __name__ == "__main__":
@@ -92,9 +88,6 @@ if __name__ == "__main__":
         return pd.read_csv(file_path)
 
     input = nextmv.load(
-        input_format=nextmv.InputFormat.MULTI_FILE,
-        options=options,
-        path="inputs",
         data_files=[
             nextmv.json_data_file(name="input", input_data_key="input"),
             nextmv.DataFile(
@@ -104,5 +97,5 @@ if __name__ == "__main__":
             ),
         ],
     )
-    output = fit(input)
-    nextmv.write(output=output, path="outputs")
+    solution_files, metrics = fit(input)
+    nextmv.write(solution_files=solution_files, metrics=metrics)

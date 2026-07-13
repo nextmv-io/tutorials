@@ -4,10 +4,10 @@ This is the code for the workflow of the [Avocado price optimization
 example authored by Gurobi][gurobi-example]. This workflow orchestrates the
 regression and decision models.
 
-* Install requirements.
+* Sync the project.
 
   ```bash
-  pip install -r requirements.txt
+  uv sync
   ```
 
 * Export your Nextmv Cloud API key, as it is required.
@@ -19,7 +19,7 @@ regression and decision models.
 * Run the example.
 
   ```bash
-  cat input.json | python main.py
+  cat input.json | uv run main.py
   ```
 
 [gurobi-example]: https://www.gurobi.com/jupyter_models/avocado-price-optimization/

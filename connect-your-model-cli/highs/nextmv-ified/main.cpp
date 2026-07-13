@@ -237,11 +237,10 @@ int main(int argc, char* argv[]) {
   // Build complete output structure
   output["solution"]["columns"] = columns;
   output["solution"]["rows"] = rows;
-  output["statistics"]["schema"] = "v1";
-  output["statistics"]["result"]["value"] = info.objective_function_value;
-  output["statistics"]["result"]["duration"] = duration.count();
-  output["statistics"]["result"]["custom"]["simplex_iteration_count"] = info.simplex_iteration_count;
-  output["statistics"]["result"]["custom"]["status"] = highs.modelStatusToString(model_status);
+  output["metrics"]["objective_value"] = info.objective_function_value;
+  output["metrics"]["duration"] = duration.count();
+  output["metrics"]["simplex_iteration_count"] = info.simplex_iteration_count;
+  output["metrics"]["status"] = highs.modelStatusToString(model_status);
   
   // Output formatted JSON to stdout
   cout << output.dump(2) << endl;

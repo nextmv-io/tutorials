@@ -1,0 +1,10 @@
+[project]
+name = "regression"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "nextmv>=1.9.5",
+    "pandas>=3.0.3",
+    "scikit-learn>=1.9.0",
+    "statsmodels>=0.14.6",
+]

@@ -25,7 +25,8 @@ class Workflow(FlowSpec):
         inputs_dir = "workflow_inputs"
         os.makedirs(inputs_dir, exist_ok=True)
         avocado.to_csv(os.path.join(inputs_dir, "avocado.csv"), index=False)
-        nextmv.write(input, path=os.path.join(inputs_dir, "input.json"))
+        with open(os.path.join(inputs_dir, "input.json"), "w") as f:
+            json.dump(input, f)
 
         return inputs_dir
 
@@ -80,7 +81,7 @@ class Workflow(FlowSpec):
 
     @needs(predecessors=[decision])
     @step
-    def resolve_output(result: cloud.RunResult) -> dict[str, Any]:
+    def resolve_output(result: nextmv.RunResult) -> dict[str, Any]:
         """Writes the final output of the workflow."""
 
         # Extract the path to the output files.
@@ -94,13 +95,13 @@ class Workflow(FlowSpec):
             if os.path.isfile(full_file_name):
                 shutil.copy(full_file_name, outputs_dir)
 
-        statistics = {"statistics": result.metadata.statistics}
+        metrics = {"metrics": result.metadata.metrics}
 
         solution_file = "solution.json"
         with open(os.path.join(outputs_dir, solution_file), "r") as f:
             solution_data = json.load(f)
 
-        consolidated_output = {**solution_data, **statistics}
+        consolidated_output = {**solution_data, **metrics}
 
         return consolidated_output
 
