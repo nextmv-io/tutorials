@@ -16,3 +16,5 @@ Tutorials for getting up and running with the Nextmv Platform.
   locally using the Python SDK.
 * [Ochestrate multiple models - Nextpipe](./orchestrate-multiple-models/): use
   Nextpipe to orchestrate multiple decision models in a single workflow.
+* [Webhooks](./webhooks/): set up webhooks to send Nextmv events to your own
+  application or service.
